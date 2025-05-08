@@ -1,0 +1,20 @@
+{
+  "name": "bouw-je-eigen-api-frontend-met-vanilla-js-runedevisch",
+  "version": "1.0.0",
+  "description": "[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/Fh7nJqBW) # 🛠️ **Projectopdracht – Bouw je eigen API + frontend met Vanilla JS**",
+  "homepage": "https://github.com/De-Passer-SOSY/bouw-je-eigen-api-frontend-met-vanilla-js-runedevisch#readme",
+  "bugs": {
+    "url": "https://github.com/De-Passer-SOSY/bouw-je-eigen-api-frontend-met-vanilla-js-runedevisch/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/De-Passer-SOSY/bouw-je-eigen-api-frontend-met-vanilla-js-runedevisch.git"
+  },
+  "license": "ISC",
+  "author": "RD",
+  "type": "commonjs",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
