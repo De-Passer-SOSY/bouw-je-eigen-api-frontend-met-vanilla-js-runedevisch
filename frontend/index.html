@@ -6,23 +6,78 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-<header>
 
-</header>
-
-<nav class="sidebar" aria-label="Hoofdmenu">
-    <p>Dashboard</p>
-    <ul>
-        <li><a href="index.html" class="active">Home</a></li>
-        <li><a href="23-24.html">Seizoen 2023-2024</a></li>
-    </ul>
-</nav>
+<aside class = "sidebar">
+    <nav>
+        <h2>Dashboard</h2>
+        <ul>
+            <li><a href="index.html" class="active">Home</a></li>
+        </ul>
+    </nav>
+</aside>
 
 <main>
     <h1>Welkom op onze website.</h1>
     <p>Op deze website vindt u de uitslagen van de voetbalmatchen in de Jupiler Pro League van het seizoen 2023-2024.
         U kunt zelf nog wedstrijden toevoegen, bewerken en verwijderen.</p>
+
+    <section class="form-section hidden" id="form-wrapper">
+        <form id="matchForm">
+            <input type="hidden" id="absence-id" />
+
+            <fieldset class="formGroup">
+                <label for="matchDate">📅 Datum van de wedstrijd</label>
+                <input type="text" id="matchDate" required />
+            </fieldset>
+            
+            <fieldset class="formGroup">
+                <label for="competitionName">Naam van de competitie</label>
+                <input type="text" id="competitionName" required />
+            </fieldset>
+            
+            <fieldset class="formGroup">
+                <label for="season">seizoen</label>
+                <input type="text" id="season" required />
+            </fieldset>
+
+            <fieldset class="formGroup">
+                <label for="homeTeamName">⚽️ Naam van de ploeg die thuis speelt</label>
+                <input type="text" id="homeTeamName" required />
+            </fieldset>
+
+            <fieldset class="formGroup">
+                <label for="awayTeamName">⚽ Naam van de ploeg die uit speelt</label>
+                <input type="text" id="awayTeamName" required />
+            </fieldset>
+            
+            <fieldset class="formGroup">
+                <label for="homeScore">Aantal doelpunten die de thuisploeg heeft gescoord</label>
+                <input type="text" id="homeScore" required />
+            </fieldset>
+
+            <fieldset class="formGroup">
+                <label for="awayScore">Aantal doelpunten die de uitploeg heeft gescoord</label>
+                <input type="text" id="awayScore" required />
+            </fieldset>
+
+            <fieldset class="formGroup">
+                <label for="stadium">🏟️ Stadion waarin de wedstrijd werd gespeeld</label>
+                <input type="text" id="stadium" required />
+            </fieldset>
+
+            <fieldset>
+                <button type="submit" class="save-btn">💾 Opslaan</button>
+            </fieldset>
+        </form>
+    </section>
+
+
+
+
+
+
 </main>
+
 
 
 
