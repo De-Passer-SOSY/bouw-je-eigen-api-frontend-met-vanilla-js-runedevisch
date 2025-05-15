@@ -37,7 +37,28 @@ app.post("/newMatch", async (req, res) => {
     res.status(201).json({id});
 });
 
+app.put("/updateMatch/:id", async (req, res) => {
+    const id = parseInt(req.params.id);
+    const { match_date, competition_name, season, home_team_name, away_team_name, home_score, away_score, stadium } = req.body;
+    await db("footballData").where({ id }).update({
+        match_date,
+        competition_name,
+        season,
+        home_team_name,
+        away_team_name,
+        home_score,
+        away_score,
+        stadium
+    });
+    res.json({ message: "Bijgewerkt" });
+});
 
+app.delete("/deleteMatch/:id", async (req, res) => {
+    const id = parseInt(req.params.id);
+    const deleted = await db("footballData").where({ id }).del();
+    if(deleted) res.json({ message: "Verwijderd" });
+    else res.status(404).json({ message: "Match niet gevonden" });
+})
 
 app.listen(3333, () => {
     console.log("Server is running on port 3333");
