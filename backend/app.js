@@ -8,12 +8,36 @@ app.use(express.json());
 
 app.get("/footballData", async (req, res) => {
     try{
-      const footballData = await db("footballData");
-      res.status(200).json(footballData)
+        const footballData = await db("footballData");
+        res.status(200).json(footballData);
     } catch{
-        res.status(500).json({message:"Internal server error"})
+        res.status(500).json({message:"Internal server error"});
     }
-})
+});
+
+app.get("/match/:id", async (req, res) => {
+    const id = parseInt(req.params.id);
+    const match = await db("footballData").where({ id }).first();
+    if(match) res.json(match);
+    else res.status(404).json({message: "Match not found"});
+});
+
+app.post("/newMatch", async (req, res) => {
+    const { match_date, competition_name, season, home_team_name, away_team_name, home_score, away_score, stadium } = req.body;
+    const [id] = await db("footballData").insert({
+        match_date,
+        competition_name,
+        season,
+        home_team_name,
+        away_team_name,
+        home_score,
+        away_score,
+        stadium
+    });
+    res.status(201).json({id});
+});
+
+
 
 app.listen(3333, () => {
     console.log("Server is running on port 3333");
