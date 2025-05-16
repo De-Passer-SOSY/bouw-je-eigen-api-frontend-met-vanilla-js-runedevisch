@@ -7,23 +7,23 @@
 </head>
 <body>
 
-<aside class = "sidebar">
+<aside class="sidebar">
     <nav>
-        <h2>Dashboard</h2>
+        <h2 class="logo">Dashboard</h2>
         <ul>
             <li><a href="index.html" class="active">Home</a></li>
         </ul>
     </nav>
 </aside>
 
-<main>
+<main class="main">
     <h1>Welkom op onze website.</h1>
     <p>Op deze website vindt u de uitslagen van de voetbalmatchen in de Jupiler Pro League van het seizoen 2023-2024.
         U kunt zelf nog wedstrijden toevoegen, bewerken en verwijderen.</p>
 
-    <section class="form-section hidden" id="form-wrapper">
+    <section class="formSection hidden" id="formWrapper">
         <form id="matchForm">
-            <input type="hidden" id="absence-id" />
+            <input type="hidden" id="matchId" />
 
             <fieldset class="formGroup">
                 <label for="matchDate">📅 Datum van de wedstrijd</label>
@@ -66,11 +66,30 @@
             </fieldset>
 
             <fieldset>
-                <button type="submit" class="save-btn">💾 Opslaan</button>
+                <button type="submit" class="saveButton">💾 Opslaan</button>
             </fieldset>
         </form>
     </section>
 
+    <section class="addMatchSection">
+        <button class="openFormButton" id="openForm">➕ Nieuwe match</button>
+    </section>
+
+    <section class="tableSection">
+        <table>
+            <tr>
+                <th scope="col">Datum</th>
+                <th scope="col">Competitie</th>
+                <th scope="col">Seizoen</th>
+                <th scope="col">Thuisploeg</th>
+                <th scope="col">Uitploeg</th>
+                <th scope="col">Thuispunten</th>
+                <th scope="col">Uitpunten</th>
+                <th scope="col">Stadion</th>
+                <th scope="col">Acties</th>
+            </tr>
+        </table>
+    </section>
 
 
 
