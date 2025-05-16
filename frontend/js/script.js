@@ -43,15 +43,15 @@ function renderMatches(matches) {
             <td>${match.away_score}</td>
             <td>${match.stadium}</td>
             <td>
-                <button class="editButton" dataId="${match.id}">✏️ Wijzig</button>
-                <button class="deleteButton" dataId="${match.id}">🗑️ Verwijder</button>
+                <button class="editButton" data-id="${match.id}">✏️ Wijzig</button>
+                <button class="deleteButton" data-id="${match.id}">🗑️ Verwijder</button>
             </td>
         `;
 
         row.querySelector('.editButton').addEventListener('click', () => editMatch(match.id));
         row.querySelector('.deleteButton').addEventListener('click', () => deleteMatch(match.id));
 
-        list.appendMatch(row);
+        list.appendChild(row);
     });
 }
 
@@ -77,7 +77,7 @@ function handleFormSubmit(e) {
 
     fetch(url, {
         method,
-        headers: {'contentType': 'application/json'},
+        headers: {'content-type': 'application/json'},
         body: JSON.stringify(match)
     })
         .then(() => {
@@ -89,3 +89,42 @@ function handleFormSubmit(e) {
         .catch(() => showAlert('❌ Er ging iets mis.', 'error'));
 }
 
+function editMatch(id) {
+    fetch(`http://localhost:3333/match/${id}`)
+        .then(res => res.json())
+        .then(data => {
+            document.getElementById('matchId').value = data.id;
+            document.getElementById('matchDate').value = data.match_date;
+            document.getElementById('competitionName').value = data.competition_name;
+            document.getElementById('season').value = data.season;
+            document.getElementById('homeTeamName').value = data.home_team_name;
+            document.getElementById('awayTeamName').value = data.away_team_name;
+            document.getElementById('homeScore').value = data.home_score;
+            document.getElementById('awayScore').value = data.away_score;
+            document.getElementById('stadium').value = data.stadium;
+            document.getElementById('formWrapper').classList.remove('hidden');
+            document.getElementById('matchForm').scrollIntoView({ behavior: 'smooth' });
+        });
+}
+
+function deleteMatch(id){
+    fetch(`http://localhost:3333/match/${id}`, {method: 'DELETE'})
+        .then(() => {
+            showAlert('🗑️ Match verwijderd', 'success');
+            fetchMatches();
+        })
+        .catch(() => showAlert('❌ Verwijderen mislukt.', 'error'));
+}
+
+function resetForm(){
+    document.getElementById('matchId').value = '';
+    document.getElementById('matchForm').reset();
+}
+
+function showAlert(message, type = 'success') {
+    const alertBox = document.getElementById('alert');
+    alertBox.textContent = message;
+    alertBox.className = `alert ${type}`;
+    alertBox.classList.remove('hidden');
+    setTimeout(() => alertBox.classList.add('hidden'), 3000);
+}
