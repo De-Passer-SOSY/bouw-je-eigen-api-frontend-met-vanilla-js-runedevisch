@@ -1,6 +1,9 @@
 const express = require("express");
 const cors = require("cors");
 const db = require("./services/db");
+const fs = require("fs");
+const swaggerUi = require("swagger-ui-express");
+const swaggerDocument = require("./services/swagger.json");
 
 const app = express();
 app.use(cors());
@@ -58,7 +61,9 @@ app.delete("/deleteMatch/:id", async (req, res) => {
     const deleted = await db("footballData").where({ id }).del();
     if(deleted) res.json({ message: "Verwijderd" });
     else res.status(404).json({ message: "Match niet gevonden" });
-})
+});
+
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 app.listen(3333, () => {
     console.log("Server is running on port 3333");

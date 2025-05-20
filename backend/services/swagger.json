@@ -1,0 +1,125 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Voetbal API",
+    "version": "1.0.0",
+    "description": "Een eenvoudige API voor voetbaluitslagen uit de Jupiler Pro League van het seizoen 2023-2024"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:3333"
+    }
+  ],
+  "paths": {
+    "/footballData": {
+      "get": {
+        "summary": "Toon alle voetbaluitslagen van de Jupiler Pro League 2023-2024",
+        "responses": {
+          "200": {
+            "description": "Lijst van wedstrijden"
+          }
+        }
+      },
+      "post": {
+        "summary": "Voeg een nieuwe wedstrijd toe",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "match_date": { "type": "string", "format": "date" },
+                  "competition_name": { "type": "string" },
+                  "season": { "type": "string" },
+                  "home_team_name": { "type": "string" },
+                  "away_team_name": { "type": "string" },
+                  "home_score": { "type": "integer" },
+                  "away_score": { "type": "integer" },
+                  "stadium": { "type": "string" }
+                },
+                "required": [
+                  "match_date",
+                  "competition_name",
+                  "season",
+                  "home_team_name",
+                  "away_team_name"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": { "description": "Wedstrijd toegevoegd" }
+        }
+      }
+    },
+    "/footballData/{id}": {
+      "get": {
+        "summary": "Toon één wedstrijd",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": { "type": "integer" }
+          }
+        ],
+        "responses": {
+          "200": { "description": "Wedstrijd gevonden" },
+          "404": { "description": "Niet gevonden" }
+        }
+      },
+      "put": {
+        "summary": "Wijzig een wedstrijd",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": { "type": "integer" }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "match_date": { "type": "string", "format": "date" },
+                  "competition_name": { "type": "string" },
+                  "season": { "type": "string" },
+                  "home_team_name": { "type": "string" },
+                  "away_team_name": { "type": "string" },
+                  "home_score": { "type": "integer" },
+                  "away_score": { "type": "integer" },
+                  "stadium": { "type": "string" }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": { "description": "Wedstrijd bijgewerkt" },
+          "404": { "description": "Niet gevonden" }
+        }
+      },
+      "delete": {
+        "summary": "Verwijder een wedstrijd",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": { "type": "integer" }
+          }
+        ],
+        "responses": {
+          "200": { "description": "Wedstrijd verwijderd" },
+          "404": { "description": "Niet gevonden" }
+        }
+      }
+    }
+  }
+}

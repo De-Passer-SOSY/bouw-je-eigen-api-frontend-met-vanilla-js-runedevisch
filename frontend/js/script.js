@@ -12,6 +12,7 @@ function init() {
     openFormButton.addEventListener('click', () => {
         formWrapper.classList.remove('hidden');
         form.scrollIntoView({ behavior: 'smooth' });
+        console.log('open');
         resetForm();
     });
 
