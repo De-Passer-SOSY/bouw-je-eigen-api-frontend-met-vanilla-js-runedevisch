@@ -7,14 +7,11 @@
 </head>
 <body>
 
-<aside class="sidebar">
+<header class="topbar">
     <nav>
-        <h2 class="logo">Dashboard</h2>
-        <ul>
-            <li><a href="index.html" class="active">Home</a></li>
-        </ul>
+        <a href="index.html" class="active">Home</a>
     </nav>
-</aside>
+</header>
 
 <main class="main">
     <section id="alert" class="alert hidden" role="alert"></section>
@@ -25,37 +22,43 @@
     <section class="formSection hidden" id="formWrapper">
         <form id="matchForm">
             <input type="hidden" id="matchId" />
+            <section class="formContainer">
+                <fieldset class="formGroup">
+                    <label for="matchDate">📅 Datum van de wedstrijd</label>
+                    <input type="text" id="matchDate" required />
+                </fieldset>
 
-            <fieldset class="formGroup">
-                <label for="matchDate">📅 Datum van de wedstrijd</label>
-                <input type="text" id="matchDate" required />
-            </fieldset>
-            
-            <fieldset class="formGroup">
-                <label for="competitionName">⚽️ Naam van de competitie</label>
-                <input type="text" id="competitionName" required />
-            </fieldset>
-            
-            <fieldset class="formGroup">
-                <label for="season">📅 seizoen</label>
-                <input type="text" id="season" required />
-            </fieldset>
+                <fieldset class="formGroup">
+                    <label for="competitionName">⚽️ Naam van de competitie</label>
+                    <input type="text" id="competitionName" required />
+                </fieldset>
+            </section>
 
-            <fieldset class="formGroup">
-                <label for="homeTeamName">⚽️ Naam van de ploeg die thuis speelt</label>
-                <input type="text" id="homeTeamName" required />
-            </fieldset>
+            <section class="formContainer">
+                <fieldset class="formGroup">
+                    <label for="season">📅 seizoen</label>
+                    <input type="text" id="season" required />
+                </fieldset>
 
-            <fieldset class="formGroup">
-                <label for="awayTeamName">⚽ Naam van de ploeg die uit speelt</label>
-                <input type="text" id="awayTeamName" required />
-            </fieldset>
-            
-            <fieldset class="formGroup">
-                <label for="homeScore">⚽ Aantal doelpunten die de thuisploeg heeft gescoord</label>
-                <input type="text" id="homeScore" required />
-            </fieldset>
+                <fieldset class="formGroup">
+                    <label for="homeTeamName">⚽️ Naam van de ploeg die thuis speelt</label>
+                    <input type="text" id="homeTeamName" required />
+                </fieldset>
+            </section>
 
+            <section class="formContainer">
+                <fieldset class="formGroup">
+                    <label for="awayTeamName">⚽ Naam van de ploeg die uit speelt</label>
+                    <input type="text" id="awayTeamName" required />
+                </fieldset>
+
+                <fieldset class="formGroup">
+                    <label for="homeScore">⚽ Aantal doelpunten die de thuisploeg heeft gescoord</label>
+                    <input type="text" id="homeScore" required />
+                </fieldset>
+            </section>
+
+            <section class="formContainer">
             <fieldset class="formGroup">
                 <label for="awayScore">⚽ Aantal doelpunten die de uitploeg heeft gescoord</label>
                 <input type="text" id="awayScore" required />
@@ -65,8 +68,9 @@
                 <label for="stadium">🏟️ Stadion waarin de wedstrijd werd gespeeld</label>
                 <input type="text" id="stadium" required />
             </fieldset>
+            </section>
 
-            <fieldset>
+            <fieldset class="saveButtonFieldset">
                 <button type="submit" class="saveButton">💾 Opslaan</button>
             </fieldset>
         </form>
@@ -78,17 +82,19 @@
 
     <section class="tableSection">
         <table>
-            <tr>
-                <th scope="col">Datum</th>
-                <th scope="col">Competitie</th>
-                <th scope="col">Seizoen</th>
-                <th scope="col">Thuisploeg</th>
-                <th scope="col">Uitploeg</th>
-                <th scope="col">Thuispunten</th>
-                <th scope="col">Uitpunten</th>
-                <th scope="col">Stadion</th>
-                <th scope="col">Acties</th>
-            </tr>
+            <thead>
+                <tr>
+                    <th scope="col">Datum</th>
+                    <th scope="col">Competitie</th>
+                    <th scope="col">Seizoen</th>
+                    <th scope="col">Thuisploeg</th>
+                    <th scope="col">Uitploeg</th>
+                    <th scope="col">Thuispunten</th>
+                    <th scope="col">Uitpunten</th>
+                    <th scope="col">Stadion</th>
+                    <th scope="col">Acties</th>
+                </tr>
+            </thead>
             <tbody id="matchList"></tbody>
         </table>
     </section>

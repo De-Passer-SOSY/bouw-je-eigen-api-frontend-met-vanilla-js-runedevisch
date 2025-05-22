@@ -1,6 +1,9 @@
 * {
     box-sizing: border-box;
 }
+body {
+    font-family: 'Nunito Sans', sans-serif;
+}
 
 .hidden{
     display: none;
@@ -12,43 +15,25 @@
     text-align: right;
 }
 
-.sidebar{
-    height: 100%;
-    width: 160px;
+.topbar{
+    margin-left: -8px;
     position: fixed;
-    z-index: 1;
-    top: 0;
-    left: 0;
-    background-color: #ea3746;
-    padding-top: 20px;
-}
-
-.sidebar a{
-    padding: 6px 8px 6px 16px;
-    text-decoration: none;
-    font-size: 25px;
-    color: #201141;
-    display: block;
-    list-style: none;
-    cursor: pointer;
-}
-
-.logo{
     width: 100%;
-    color: #201141;
+    top: 0;
+    background-color: #130129;
     padding: 10px;
     text-align: center;
 }
 
-li{
-    list-style: none;
+.topbar a{
+    text-decoration: none;
+    color: #ea3746;
 }
 
-.main{
-    margin-left: 160px;
+.main {
+    margin-top: 80px; /* Space under top bar */
     padding: 0 10px;
 }
-
 body::before {
     content: "";
     position: fixed;
@@ -60,6 +45,8 @@ body::before {
     background-size: cover;
     background-position: center;
     opacity: 0.3;
+    pointer-events: none;
+    z-index: -1;
 }
 
 body{
@@ -128,19 +115,24 @@ td button{
 
 .formSection{
     margin-bottom: 35px;
-    border-bottom: 1px solid white;
+    border: none;
     padding-bottom: 30px;
+    width: 50%;
 }
 
 .formGroup{
     display: flex;
     flex-direction: column;
     margin-bottom: 30px;
+    width: 50%;
+    border: hidden;
+    flex-wrap: wrap;
 }
 
 label{
     margin-bottom: 5px;
     font-size: 18px;
+    width: 500px;
 }
 
 input{
@@ -184,8 +176,10 @@ button.saveButton:hover{
 th{
     background-color: #ea3746;
     padding: 10px;
-    text-align: left;
-    border-bottom: 2px solid white;
+    text-align: center;
+    border-right: 1px solid #201141;
+    border-left: 1px solid #201141;
+    opacity: 100;
 }
 
 th:first-child {
@@ -198,7 +192,8 @@ th:last-child {
 
 td{
     padding: 10px;
-    border-bottom: 1px solid white;
+    text-align: center;
+    border: 1px solid #201141;
 }
 
 td button{
@@ -226,3 +221,16 @@ td button:hover{
     opacity: 0.8;
 }
 
+.saveButton{
+    width: auto;
+}
+
+.saveButtonFieldset{
+    width: 21%;
+    border: none;
+}
+
+.formContainer{
+    display: flex;
+    flex-direction: row;
+}

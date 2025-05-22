@@ -83,6 +83,7 @@ function handleFormSubmit(e) {
     })
         .then(() => {
             showAlert(id ? '✏️ Match bijgewerkt' : '✅ Match toegevoegd', 'success');
+            console.log(match);
             resetForm();
             fetchMatches();
             document.getElementById('formWrapper').classList.add('hidden');
