@@ -3,6 +3,8 @@
 }
 body {
     font-family: 'Nunito Sans', sans-serif;
+    margin: 0;
+    padding: 0;
 }
 
 .hidden{
@@ -16,18 +18,33 @@ body {
 }
 
 .topbar{
-    margin-left: -8px;
     position: fixed;
     width: 100%;
     top: 0;
     background-color: #130129;
-    padding: 20px;
+    padding: 40px;
     text-align: center;
     font-size: 25px;
+    display: flex;
+    flex-direction: row;
+    color: #ea3746;
+}
+
+.topbar nav{
+    position: absolute;
+    left: 50%;
 }
 
 .topbar a{
     text-decoration: none;
+    color: #ea3746;
+    display: flex;
+    justify-content: center;
+}
+
+.topbar #date{
+    position: absolute;
+    right: 20px;
     color: #ea3746;
 }
 
@@ -234,4 +251,13 @@ td button:hover{
 .formContainer{
     display: flex;
     flex-direction: row;
+}
+
+.footer{
+    width: 100%;
+    text-align: center;
+    background-color: #130129;
+    color: #ea3746;
+    padding: 10px;
+    margin-top: 10px;
 }
